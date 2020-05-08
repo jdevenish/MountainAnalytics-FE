@@ -2,14 +2,12 @@
 
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
+Below is the timeline provided with roadmap estimates
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Day 1| Project Description | Incomplete
-|Day 1| Wireframes / Priority Matrix / Timeline | Incomplete
+|Day 1| Project Wireframes / Priority Matrix / Timeline | Incomplete
+|Day 2| Core Backend Architecture (MongoDB) | Incomplete
 |Day 3| Core Application Structure (HTML, CSS, etc.) | Incomplete
 |Day 4| MVP & Bug Fixes | Incomplete
 |Day 5| Final Touches | Incomplete
@@ -18,24 +16,24 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+Everyone needs to understand how users are visiting their websites so they can better taylor the experience. Mountain Analytics allows you to easily do just that. Add a single line of code to your website and visualize the following information about your visitors. 
 
-## Google Sheet
-
-Include link to your google sheet here.  Here is the sample [Joe had used in class](https://docs.google.com/spreadsheets/d/15PmioBi2dQEkewpqI7MDkDpvcVF0Trw8vmarAQbwoHk/edit#gid=0) 
+Data Collected:
+* Page Load Time
+* Device Type
+* Browser
+* Location
 
 ## Wireframes
 
-Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe. Do not include the actual image and have it render on the page.  
+### User Journey
+![user_journey](https://res.cloudinary.com/doaftkgbv/image/upload/v1588942864/UserJourney_oxk5fs.png)
 
-- [Mobile]()
-- [Tablet](https://mockflow.com/app/#Wireframe)
-- [Desktop](https://www.figma.com/)
+### React Architecture
+![react_arch](https://res.cloudinary.com/doaftkgbv/image/upload/v1588942864/React_Arch_lxe2of.png)
 
-Wireframing Resources:
-
-- [Mockflow](https://mockflow.com/app/#Wireframe)
-- [Figma](https://www.figma.com/)
+### Database Models
+![models](https://res.cloudinary.com/doaftkgbv/image/upload/v1588942862/DB_Models_lktmkh.png)
 
 
 ## Time/Priority Matrix 
