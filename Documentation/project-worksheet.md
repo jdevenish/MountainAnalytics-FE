@@ -29,7 +29,7 @@ Data Collected:
 ### User Journey
 ![user_journey](https://res.cloudinary.com/doaftkgbv/image/upload/v1588942864/UserJourney_oxk5fs.png)
 
-### React Architecture
+### React Component Architecture
 ![react_arch](https://res.cloudinary.com/doaftkgbv/image/upload/v1588942864/React_Arch_lxe2of.png)
 
 ### Database Models
@@ -48,57 +48,63 @@ Now create a separate list starting with A and assign it one of the features.  C
 
 Once complete tally up the time and determine how long the project will take to complete. Now break those features into MVP and PostMVP so you can guarantee you will have a fully functioning project to demo. 
 
-### MVP/PostMVP - 5min
+### MVP/PostMVP
 
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
+The functionality will then be divided into two separate lists: MPV and PostMVP.
 
-#### MVP (examples)
+#### MVP
 
-- Pull data using google json api
-- Render data on page 
-- Allow user to choose favorites 
-- Save their choices in firebase
+- Create single account
+- Create website & generate script 
+- Log data 
+- Visualize data in tables
 
 #### PostMVP 
 
-- Anything else that is not MVP
+- Visualize data with line graphs & pie charts
+- Create Organization with multiple users
+- Create multiple websites 
 
-## Functional Components
-
-Based on the initial logic defined in the previous sections try and breakdown the logic further into functional components, and by that we mean functions.  Try and capture what logic would need to be defined if the game was broken down into the following categories.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe.
 
 #### MVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Hamburger | H | 1hr | 1.5hr | -hr|
-| Project Previews | H | 3hr | -hr | -hr|
-| Regular Nav | H | H | -hr | -hr|
-| Adding Form | H | 1.5hr| -hr | -hr |
-| Other sections and flex| M | 4hr | 2hr | -hr|
-| Working with API | H | 3hrs| 2hr | -hr |
-| Responsive | H | 3hr | -hr | -hr|
-| Social Media Icons | L | 1hr | -hr | -hr|
-| Total | H | 15.5hrs| -hrs | -hrs |
+| Backend Architecture | H | 8hr | -hr | -hr|
+| Header | H | 1.5hr | -hr | -hr|
+| Welcome Page | H | 3hr | -hr | -hr|
+| Create Account | H | 1hr| -hr | -hr |
+| Login | H | 1hr | -hr | -hr|
+| Dashboard | H | 3hrs| -hr | -hr |
+| Website Details | H | 8hr | -hr | -hr|
+| Bug Fixes | M | 4hr | -hr | -hr|
+| Deployment | H | 2hr | -hr | -hr|
+| Documentation | M | 1hr | -hr | -hr|
+| Total | H | 32hrs| -hrs | -hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Project Hover | L | 3hr | -hr | -hr|
-| Banner letters wiggle | L | 1hr | -hr | -hr|
-| Interactive Banner | M | 4hr | -hr | -hr|
-| Materialize | H | 4hr | -hr | -hr|
-| Bootstrap | H | 4hr | -hr | -hr|
-| Make own icon | L | 4hr | -hr | -hr|
-| Total | H | 20hrs| -hrs | -hrs |
+| Add Additional Websites | L | 2hr | -hr | -hr|
+| Add Additional Users | L | 3hr | -hr | -hr|
+| Add Charts and Graphs | H | 4hr | -hr | -hr|
+| Total | H | 9hrs| -hrs | -hrs |
 
 ## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project. 
+This section lists the additional front-end and back-end libraries used to complete this project
+
+### Front-End
+* React-responsive
+* React-bootstrap
+* React-strap
+
+### Back-End
+* Bcrypt
+* Cors
+* JWT
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
+This section includes brief code snippets of functionality that was new for me or I was specificaly proud of. See individual descriptions for more information. 
 
 ```
 function reverse(string) {
