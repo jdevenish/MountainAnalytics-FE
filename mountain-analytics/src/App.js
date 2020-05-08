@@ -1,27 +1,32 @@
 import React, { useState, createContext, useEffect } from 'react';
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
 import './App.css';
 
 function App() {
+    const [loggedIn, setLoggedIn] = useState(true);
+    const [token, setToken] =  useState("");
+    const [userProfile, setUserProfile] = useState({});
+    const [org, setOrg] = useState({});
 
-
-  return (
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header loggedIn={loggedIn}/>
+      <TrackerContext.Provider value={{
+          loggedIn,
+          setLoggedIn,
+          token,
+          setToken,
+          userProfile,
+          setUserProfile,
+          org,
+          setOrg
+      } }>
+        <Main />
+      </TrackerContext.Provider>
     </div>
-  );
+    );
 }
 
 export default App;
+export const TrackerContext = createContext();
