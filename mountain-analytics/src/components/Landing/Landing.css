@@ -1,0 +1,30 @@
+.landing-container{
+    background-color: #131c29;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+
+.landing-content_container{
+    background-color: #091423;
+    color: white;
+    width: 100%;
+    float: right;
+    margin-top: 20px;
+    height: inherit;
+    border-radius: 20px 20px 0 0;
+}
+
+.landing-left_padding{
+    height:inherit;
+    min-width: 75px;
+    margin-right: 1rem;
+}
+
+@media (min-width: 813px) {
+    .landing-left_padding{
+        min-width: 150px;
+    }
+
+}
