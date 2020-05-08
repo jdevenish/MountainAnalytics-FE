@@ -13,7 +13,7 @@ function Main() {
     return (
         <Switch>
             <Route exact path="/" component={Landing} />
-            <Route path="/login" component={Login} />
+            <Route path="/login" component={sharedStates.loggedIn ? Dashboard : Login} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/settings" component={Settings} />
             <Route path="/details/:siteId" component={Details} />

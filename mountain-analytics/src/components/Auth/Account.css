@@ -1,7 +1,8 @@
 .loginContainer{
     width: 350px;
-    background-color: aliceblue;
+    background-color: #091423;
     padding: 40px 20px;
+    margin: 20px auto;
 }
 
 .loginContainer-Button{

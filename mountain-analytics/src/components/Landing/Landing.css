@@ -18,6 +18,13 @@
 
 .landing-left_padding{
     height:inherit;
-    min-width: 150px;
+    min-width: 75px;
     margin-right: 1rem;
+}
+
+@media (min-width: 813px) {
+    .landing-left_padding{
+        min-width: 150px;
+    }
+
 }

@@ -11,7 +11,8 @@ function Dashboard() {
 
                 </div>
                 <div className="landing-content_container">
-                    <h1>Dashboard Page</h1>
+                    <h1>Your Websites</h1>
+
                 </div>
 
             </div>

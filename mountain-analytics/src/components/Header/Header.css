@@ -11,6 +11,11 @@
     align-self: center;
 }
 
+.header-img{
+    height: 35px;
+    width: 75px;
+}
+
 .header-login_and_settings{
     display: flex;
     align-self: center;
@@ -33,4 +38,13 @@
 
 .nav-link{
     color: white;
+}
+
+@media (min-width: 813px) {
+
+    .header-img{
+        height: 69px;
+        width: 150px;
+    }
+
 }
