@@ -35,7 +35,7 @@ Data Collected:
 ### Database Models
 ![models](https://res.cloudinary.com/doaftkgbv/image/upload/v1588942862/DB_Models_lktmkh.png)
 
-### MVP/PostMVP
+## MVP/PostMVP
 
 The functionality will then be divided into two separate lists: MPV and PostMVP.
 
@@ -52,6 +52,7 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 - Create Organization with multiple users
 - Create multiple websites 
 
+## Time / Priority Breakdown
 
 #### MVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
