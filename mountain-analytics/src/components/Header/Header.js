@@ -15,7 +15,7 @@ function Header({loggedIn}) {
     return (
         <div className="header">
             <Navbar color="light" light expand="md" className="header-buttons">
-                <Link className="navbar-brand" to="/"><img src="https://res.cloudinary.com/doaftkgbv/image/upload/v1588953138/MountainAnalyticsLogo_qivvgr.png" alt="Mountain Analytics" className="header-img"/></Link>
+                <Link className="navbar-brand" to="/"><img src="https://res.cloudinary.com/doaftkgbv/image/upload/v1589041044/MountainAnalyticsLogo-orange_deea3a.png" alt="Mountain Analytics" className="header-img"/></Link>
                 <div className="header-buttons-container">
                     <Nav className="mr-auto header-buttons-container_list">
                         <div className="header-buttons_container">
