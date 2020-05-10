@@ -1,3 +1,73 @@
+.domain__listContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.domain__addDomain{
+    margin-top: 15px;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+.singleDomain{
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    margin: 7px auto;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #182434;
+    border-radius: 20px;
+}
+
+.singleDomain__content{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.singleDomain__nameAndStatus{
+    padding-top: 8px;
+    text-align: left;
+}
+
+.singleDomain__nameAndStatus > h1{
+    font-size: 24px;
+}
+
+.singleDomain__nameAndStatus > p{
+    color: #45f957;
+}
+
+.singleDomain__siteURL{
+    display: none;
+}
+
+.singleDomain__createdOn{
+    display: none;
+}
+
+.singleDomain__divider{
+    display: none;
+}
+
+.singleDomain__detailsContainer{
+    margin-right: 5px;
+}
+
+.singleDomain__detailsIcon{
+    display: block;
+}
+
+.singleDomain__detailsBtn{
+    display: none;
+}
+
+
+
 .modal-content{
     margin-top: 150px;
     background-color: #3D4D65;
@@ -39,4 +109,60 @@
     color:black;
     background-color: #bc294e;
     border-color: #bc294e;
+}
+
+@media (min-width: 813px) {
+
+    .singleDomain__siteURL{
+        display: block;
+    }
+
+    .singleDomain__siteURL > a{
+        color: #4CD6C1;
+    }
+
+    .singleDomain__createdOn{
+        padding-top: 8px;
+        display: block;
+    }
+
+    .singleDomain__createdOn > h3{
+        font-size: 24px;
+    }
+
+    .singleDomain__divider{
+        display: block;
+        width: 2px;
+        height: 60px;
+        background-color: #091423;
+        border-radius: 20px;
+    }
+
+    .singleDomain__detailsContainer{
+        margin-right: 5px;
+    }
+
+    .singleDomain__detailsIcon{
+        display: none;
+    }
+
+    .singleDomain__detailsBtn{
+        display: block;
+        background-color: #44aefb;
+        color: white;
+        font-weight: bold;
+        border-radius: 20px;
+        width: 110%;
+        padding: 1px 7px 2px;
+        border: 1px solid white;
+    }
+
+    .singleDomain{
+        width: 80%;
+    }
+
+    .singleDomain__nameAndStatus{
+        text-align: center;
+    }
+
 }
