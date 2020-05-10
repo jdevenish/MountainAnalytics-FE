@@ -28,11 +28,11 @@ function Landing() {
 
     return (
         <div>
-            <div className="landing-container">
-                <div className="landing-left_padding">
+            <div className="main">
+                <div className="main__side-menu">
                     {sharedStates.loggedIn ? <SideNav/> : ""}
                 </div>
-                <div className="landing-content_container">
+                <div className="main__content">
                     <div className="testing">
                         <div className="landing-video_container">
                             <video id="background-video" loop autoPlay>

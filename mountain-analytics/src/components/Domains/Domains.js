@@ -31,87 +31,85 @@ function Domains() {
 
     return (
         <div>
-            <div className="landing-container">
-                <div className="landing-left_padding">
+            <div className="main">
+                <div className="main__side-menu">
                     <SideNav/>
                 </div>
-                <div className="landing-content_container">
+                <div className="main__content">
                     <br/>
                     <h1>Domains</h1>
-                    <div className="dashboard-site_table_container">
-                        <div className="singleSite-container">
-                            <div className="singleSite-info">
-                                <div className="singleSite-name_status">
+                    <div className="domain__listContainer">
+                        <div className="singleDomain">
+                            <div className="singleDomain__content">
+                                <div className="singleDomain__nameAndStatus">
                                     <h1>Investmate</h1>
                                     <p>Active</p>
                                 </div>
-                                <div className="singleSite-url">
+                                <div className="singleDomain__siteURL">
                                     <a href="http://https://investmate.netlify.app/">https://investmate.netlify.app/</a>
                                 </div>
-                                <div className="singleSite-created_on">
+                                <div className="singleDomain__createdOn">
                                     <h3>Created On</h3>
                                     <p>05/04/2020</p>
                                 </div>
                             </div>
-                            <div className="singleSite-divider">
+                            <div className="singleDomain__divider">
                             </div>
-                            <div className="singleSite-details">
+                            <div className="singleDomain__detailsContainer">
                                 <Link to="/details/1">
-                                    <div className="singleSite-details_button">Details</div>
-                                    <i className="singleSite-details_icon material-icons">more_horiz</i>
+                                    <div className="singleDomain__detailsBtn">Details</div>
+                                    <i className="singleDomain__detailsIcon material-icons">more_horiz</i>
                                 </Link>
                             </div>
                         </div>
-                        <div className="singleSite-container">
-                            <div className="singleSite-info">
-                                <div className="singleSite-name_status">
+                        <div className="singleDomain">
+                            <div className="singleDomain__content">
+                                <div className="singleDomain__nameAndStatus">
                                     <h1>Investmate</h1>
                                     <p>Active</p>
                                 </div>
-                                <div className="singleSite-url">
+                                <div className="singleDomain__siteURL">
                                     <a href="http://https://investmate.netlify.app/">https://investmate.netlify.app/</a>
                                 </div>
-                                <div className="singleSite-created_on">
+                                <div className="singleDomain__createdOn">
                                     <h3>Created On</h3>
                                     <p>05/04/2020</p>
                                 </div>
                             </div>
-                            <div className="singleSite-divider">
-
+                            <div className="singleDomain__divider">
                             </div>
-                            <div className="singleSite-details">
+                            <div className="singleDomain__detailsContainer">
                                 <Link to="/details/1">
-                                    <div className="singleSite-details_button">Details</div>
-                                    <i className="singleSite-details_icon material-icons">more_horiz</i>
+                                    <div className="singleDomain__detailsBtn">Details</div>
+                                    <i className="singleDomain__detailsIcon material-icons">more_horiz</i>
                                 </Link>
                             </div>
                         </div>
-                        <div className="singleSite-container">
-                            <div className="singleSite-info">
-                                <div className="singleSite-name_status">
+                        <div className="singleDomain">
+                            <div className="singleDomain__content">
+                                <div className="singleDomain__nameAndStatus">
                                     <h1>Investmate</h1>
                                     <p>Active</p>
                                 </div>
-                                <div className="singleSite-url">
+                                <div className="singleDomain__siteURL">
                                     <a href="http://https://investmate.netlify.app/">https://investmate.netlify.app/</a>
                                 </div>
-                                <div className="singleSite-created_on">
+                                <div className="singleDomain__createdOn">
                                     <h3>Created On</h3>
                                     <p>05/04/2020</p>
                                 </div>
                             </div>
-                            <div className="singleSite-divider">
-
+                            <div className="singleDomain__divider">
                             </div>
-                            <div className="singleSite-details">
+                            <div className="singleDomain__detailsContainer">
                                 <Link to="/details/1">
-                                    <div className="singleSite-details_button">Details</div>
-                                    <i className="singleSite-details_icon material-icons">more_horiz</i>
+                                    <div className="singleDomain__detailsBtn">Details</div>
+                                    <i className="singleDomain__detailsIcon material-icons">more_horiz</i>
                                 </Link>
                             </div>
                         </div>
                     </div>
-                    <i className="add_site material-icons" onClick={toggle}>add_circle</i>
+                    <i className="domain__addDomain material-icons" onClick={toggle}>add_circle</i>
                     <Modal isOpen={modal} toggle={toggle} >
                         <ModalHeader toggle={toggle}>Add new domain</ModalHeader>
                         <ModalBody>
