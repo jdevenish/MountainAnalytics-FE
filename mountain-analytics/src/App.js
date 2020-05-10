@@ -4,7 +4,7 @@ import Main from "./components/Main/Main";
 import './App.css';
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(false);
     const [token, setToken] =  useState("");
     const [userProfile, setUserProfile] = useState({});
     const [org, setOrg] = useState({});
