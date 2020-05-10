@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { TrackerContext } from '../../App'
 import CreateAccount from "../Auth/CreateAccount";
+import SideNav from "../SideNav/SideNav";
 import './Landing.css'
 import backgroundVid from "../../media/Black_-_13495_bugbes.mp4"
 import {
@@ -29,6 +30,7 @@ function Landing() {
         <div>
             <div className="landing-container">
                 <div className="landing-left_padding">
+                    {sharedStates.loggedIn ? <SideNav/> : ""}
                 </div>
                 <div className="landing-content_container">
                     <div className="testing">
@@ -39,7 +41,7 @@ function Landing() {
                         </div>
                         <div className="landing-welcome_text">
                             <h1>Mountain Analytics</h1>
-                            <p>Make sense of all your data so you can make better decisions..</p>
+                            <p>Make sense of your data so you can make better decisions..</p>
                             {registerContent}
                         </div>
                     </div>

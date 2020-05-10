@@ -1,6 +1,9 @@
 import React, {useContext, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import { TrackerContext } from '../../App'
+import SideNav from "../SideNav/SideNav";
 
+import './Dashboard.css'
 function Dashboard() {
     const sharedStates = useContext(TrackerContext);
 
@@ -8,11 +11,10 @@ function Dashboard() {
         <div>
             <div className="landing-container">
                 <div className="landing-left_padding">
-
+                    <SideNav/>
                 </div>
                 <div className="landing-content_container">
-                    <h1>Your Websites</h1>
-
+                    <h1>Dashboard</h1>
                 </div>
 
             </div>

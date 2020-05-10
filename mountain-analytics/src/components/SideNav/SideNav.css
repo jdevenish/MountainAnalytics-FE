@@ -1,0 +1,23 @@
+.icon{
+    position: relative;
+    top: 8px;
+    left: -3px;
+    font-size: 30px;
+}
+
+.nav-item_container{
+    margin-top: 75px;
+}
+
+.nav-item{
+    display: block;
+    color: white;
+    font-size: 0;
+    text-align: left;
+}
+
+@media (min-width: 813px) {
+    .nav-item{
+        font-size: 20px;
+    }
+}

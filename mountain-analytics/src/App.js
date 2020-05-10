@@ -4,7 +4,7 @@ import Main from "./components/Main/Main";
 import './App.css';
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(true);
     const [token, setToken] =  useState("");
     const [userProfile, setUserProfile] = useState({});
     const [org, setOrg] = useState({});
@@ -36,7 +36,7 @@ function App() {
 
     return (
     <div className="App">
-      <Header loggedIn={loggedIn}/>
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
       <TrackerContext.Provider value={{
           loggedIn,
           setLoggedIn,
@@ -49,6 +49,9 @@ function App() {
       } }>
         <Main />
       </TrackerContext.Provider>
+      <div className="footer">
+
+      </div>
     </div>
     );
 }

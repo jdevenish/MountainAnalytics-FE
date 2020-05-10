@@ -40,3 +40,10 @@
 .bg-light{
   background-color: #131c29;
 }
+
+.footer{
+  z-index: 700;
+  background-color: #61dafb;
+  height: 150px;
+  width: 100vw;
+}

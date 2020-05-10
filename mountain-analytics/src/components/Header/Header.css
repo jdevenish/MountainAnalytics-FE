@@ -33,11 +33,47 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
-
 }
 
 .nav-link{
     color: white;
+}
+
+.profile-icon{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.popover{
+    background-color: #3D4D65;
+    color: white;
+}
+
+.popover-header{
+    background-color: #3D4D65;
+    border-bottom-color: #44aefb;
+    color: #FB9C44;
+}
+
+.popover-body{
+    color: white;
+}
+
+.popover-body > button{
+    border-color: #D2335c;
+    background-color: #D2335c;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+}
+.arrow::before, .arrow::after{
+    /*border-bottom-color: #3D4D65;*/
+
+}
+
+.bs-popover-auto[x-placement^=bottom]>.arrow::after,
+.bs-popover-auto[x-placement^=bottom] .popover-header::before{
+    border-bottom-color: #3D4D65;
 }
 
 @media (min-width: 813px) {
