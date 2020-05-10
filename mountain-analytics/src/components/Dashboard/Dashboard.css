@@ -1,0 +1,147 @@
+.dashboard-site_table_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.singleSite-container {
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    margin: 7px auto;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #182434;
+    border-radius: 20px;
+}
+
+.singleSite-info{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.singleSite-name_status{
+    padding-top: 8px;
+    text-align: left;
+}
+
+.singleSite-name_status > h1{
+    font-size: 24px;
+}
+
+.singleSite-name_status > p{
+    color: #45f957;
+}
+
+.singleSite-url{
+    display: none;
+}
+
+.singleSite-created_on{
+    display: none;
+}
+
+.singleSite-divider{
+    display: none;
+}
+
+.singleSite-details_icon{
+    display: block;
+}
+
+.singleSite-details_button {
+    display: none;
+}
+
+.add_site{
+    margin-top: 15px;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+a{
+    color: white;
+}
+
+.icon{
+    position: relative;
+    top: 8px;
+    left: -3px;
+    font-size: 30px;
+}
+
+.nav-item_container{
+    margin-top: 75px;
+}
+
+.nav-item{
+    display: block;
+    color: white;
+    font-size: 0;
+    text-align: left;
+}
+
+@media (min-width: 813px) {
+
+    .singleSite-url{
+        display: block;
+    }
+
+    .singleSite-url > a{
+        color: #4CD6C1;
+    }
+
+    .singleSite-created_on{
+        padding-top: 8px;
+        display: block;
+    }
+
+    .singleSite-created_on > h3{
+        font-size: 24px;
+    }
+
+    .singleSite-divider{
+        display: block;
+        width: 2px;
+        height: 60px;
+        background-color: #091423;
+        border-radius: 20px;
+    }
+
+    .singleSite-details{
+        margin-right: 5px;
+    }
+    .singleSite-details_icon{
+        display: none;
+    }
+
+    .singleSite-details_button{
+        display: block;
+        background-color: #44aefb;
+        color: white;
+        font-weight: bold;
+        border-radius: 20px;
+        width: 110%;
+        padding: 1px 7px 2px;
+        border: 1px solid white;
+    }
+
+    .singleSite-info{
+        width: 80%;
+    }
+
+    .singleSite-name_status{
+        text-align: center;
+    }
+
+    .nav-item{
+        display: block;
+        color: white;
+        font-size: 20px;
+        text-align: left;
+    }
+
+}

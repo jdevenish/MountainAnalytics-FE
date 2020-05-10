@@ -6,6 +6,7 @@ import Login from "../Auth/LogIn";
 import Dashboard from "../Dashboard/Dashboard";
 import Details from "../Details/Details";
 import Settings from "../Settings/Settings";
+import Domains from "../Domains/Domains";
 
 function Main() {
     const sharedStates = useContext(TrackerContext);
@@ -15,6 +16,7 @@ function Main() {
             <Route exact path="/" component={Landing} />
             <Route path="/login" component={sharedStates.loggedIn ? Dashboard : Login} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/domains" component={Domains} />
             <Route path="/settings" component={Settings} />
             <Route path="/details/:siteId" component={Details} />
             <Redirect to="/" />
