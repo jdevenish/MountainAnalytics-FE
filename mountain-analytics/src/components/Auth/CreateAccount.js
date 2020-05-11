@@ -4,58 +4,83 @@ import { Button, Form, FormGroup, Input } from 'reactstrap';
 // import { registerNewUser } from '../../services/api-helper-userAuth'
 import { TrackerContext } from '../../App'
 import "./Account.css";
+import {createNewAccount} from "../../services/api-helper-org";
 
 
 function CreateAccount() {
     const sharedStates = useContext(TrackerContext);
 
-    const [userCreds, setUserCreds] = useState({
+    const [creds, setCreds] = useState({
         email: "",
         password: "",
-        username: ""
+        first_name: "",
+        last_name: "",
+        orgName: ""
     });
 
     const handleEmailChange = e => {
-        let newCreds = {...userCreds};
+        let newCreds = {...creds};
         newCreds.email = e.target.value;
-        setUserCreds(newCreds)
+        setCreds(newCreds)
     };
 
-    const handleUserNameChange = e => {
-        let newCreds = {...userCreds};
-        newCreds.username = e.target.value;
-        setUserCreds(newCreds);
+    const handleFirstNameChange = e => {
+        let newCreds = {...creds};
+        newCreds.first_name = e.target.value;
+        setCreds(newCreds);
+    };
+
+    const handleLastNameChange = e => {
+        let newCreds = {...creds};
+        newCreds.last_name = e.target.value;
+        setCreds(newCreds);
     };
 
     const handlePasswordChange = e => {
-        let newCreds = {...userCreds};
+        let newCreds = {...creds};
         newCreds.password = e.target.value;
-        setUserCreds(newCreds);
+        setCreds(newCreds);
+    };
+
+    const handleOrgChange = e => {
+        let newCreds = {...creds};
+        newCreds.orgName = e.target.value;
+        setCreds(newCreds);
     };
 
     const handleCreateAccount = async (e) => {
         e.preventDefault();
-        console.log("Creating Account: ", userCreds)
-        if(userCreds.email.length > 3){
-            sharedStates.setToken("hello");
-            // const json = await registerNewUser(userCreds);
-            // if(json.status === 200){
-            //     localStorage.setItem("token", json.token);
-            //     sharedStates.setToken(json.token);
-            //     sharedStates.setUserProfile(json.userProfile);
-            //     console.log("User successfully created");
-            //     return <Redirect to="/resources" />
-            // } else{
-            //     sharedStates.setLoggedIn(false);
-            //     console.log("Error creating account: ", json.error)
-            // }
+        if(creds.email.length > 3){
+            const json = await createNewAccount(creds);
+            if(json.status === 200){
+                localStorage.setItem("token", json.token);
+                sharedStates.setToken(json.token);
+                sharedStates.setUserProfile(json.userProfile);
+                return <Redirect to="/dashboard" />
+            } else{
+                sharedStates.setLoggedIn(false);
+                console.log("Error creating account: ", json.error)
+            }
         }
     };
 
     return (
-
         <div className={sharedStates.loggedIn ? "hide" : "loginContainer"}>
             <Form onSubmit={handleCreateAccount}>
+                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                    <Input
+                        type="text"
+                        name="first_name"
+                        placeholder="First Name"
+                        onChange={handleFirstNameChange}
+                        className="loginContainer-input"/>
+                    <Input
+                        type="text"
+                        name="last_name"
+                        placeholder="Last Name"
+                        onChange={handleLastNameChange}
+                        className="loginContainer-input"/>
+                </FormGroup>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                     <Input
                         type="email"
@@ -67,9 +92,9 @@ function CreateAccount() {
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                     <Input
                         type="text"
-                        name="username"
-                        placeholder="Username "
-                        onChange={handleUserNameChange}
+                        name="organization"
+                        placeholder="Company Name "
+                        onChange={handleOrgChange}
                         className="loginContainer-input"/>
                 </FormGroup>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">

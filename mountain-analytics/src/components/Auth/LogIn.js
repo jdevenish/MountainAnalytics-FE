@@ -1,17 +1,16 @@
 import React, {useContext, useState} from 'react';
 
 import { Button, Form, FormGroup, Input } from 'reactstrap';
-// import { authenticateUser } from '../../services/api-helper-userAuth'
 import { TrackerContext } from '../../App'
 import "./Account.css";
+import {authenticateUser} from "../../services/api-helper-userAuth";
 
 function Login() {
     const sharedStates = useContext(TrackerContext);
 
     const [userCreds, setUserCreds] = useState({
         email: "",
-        password: "",
-        username: ""
+        password: ""
     });
 
     const handleEmailChange = e => {
@@ -29,17 +28,16 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         if (userCreds.email.length > 3) {
-            sharedStates.setToken("hello");
-            // const json = await authenticateUser(userCreds);
-            // if (json.status === 200) {
-            //     localStorage.setItem("token", json.token);
-            //     sharedStates.setToken(json.token);
-            //     sharedStates.setUserProfile(json.userProfile);
-            //     console.log("User Authenticated");
-            // } else {
-            //     sharedStates.setLoggedIn(false);
-            //     console.log("Error Authenticating User: ", json.error);
-            // }
+            const json = await authenticateUser(userCreds);
+            if (json.status === 200) {
+                localStorage.setItem("token", json.token);
+                sharedStates.setToken(json.token);
+                sharedStates.setUserProfile(json.userProfile);
+                console.log("User Authenticated");
+            } else {
+                sharedStates.setLoggedIn(false);
+                console.log("Error Authenticating User: ", json.error);
+            }
         }
     };
 
@@ -64,7 +62,6 @@ function Login() {
                                 <Input
                                     type="password"
                                     name="password"
-                                    // id="examplePassword"
                                     placeholder="Password (case sensitive)"
                                     onChange={handlePasswordChange}
                                     className="loginContainer-input"/>
