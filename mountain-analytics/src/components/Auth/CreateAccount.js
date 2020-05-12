@@ -1,8 +1,7 @@
 import React, {useContext, useState} from 'react';
-import { Redirect } from 'react-router-dom';
-import { Button, Form, FormGroup, Input } from 'reactstrap';
-// import { registerNewUser } from '../../services/api-helper-userAuth'
-import { TrackerContext } from '../../App'
+import {Redirect} from 'react-router-dom';
+import {Button, Form, FormGroup, Input} from 'reactstrap';
+import {TrackerContext} from '../../App'
 import "./Account.css";
 import {createNewAccount} from "../../services/api-helper-org";
 
@@ -56,6 +55,7 @@ function CreateAccount() {
                 localStorage.setItem("token", json.token);
                 sharedStates.setToken(json.token);
                 sharedStates.setUserProfile(json.userProfile);
+                sharedStates.setOrgId(json.userProfile.org._id);
                 return <Redirect to="/dashboard" />
             } else{
                 sharedStates.setLoggedIn(false);

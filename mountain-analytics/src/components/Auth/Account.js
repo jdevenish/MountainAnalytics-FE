@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import { TrackerContext } from '../../App'
+import {TrackerContext} from '../../App'
 import CreateAccount from "./CreateAccount"
 import LogIn from "./LogIn"
 

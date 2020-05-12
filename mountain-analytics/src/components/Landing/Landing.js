@@ -1,13 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react';
-import { TrackerContext } from '../../App'
+import React, {useContext, useState} from 'react';
+import {TrackerContext} from '../../App'
 import CreateAccount from "../Auth/CreateAccount";
 import SideNav from "../SideNav/SideNav";
 import './Landing.css'
 import backgroundVid from "../../media/Black_-_13495_bugbes.mp4"
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+import {Card, CardBody, CardImg, CardText, CardTitle} from 'reactstrap';
 
 function Landing() {
     const [showCreateAccount, setShowCreateAccount] = useState(false)

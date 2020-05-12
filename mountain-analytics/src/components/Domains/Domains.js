@@ -1,16 +1,28 @@
-import React, {useContext, useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
-import { TrackerContext } from '../../App'
+import React, {useContext, useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
+import {
+    Button,
+    Input,
+    InputGroup,
+    InputGroupAddon,
+    InputGroupText,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader
+} from 'reactstrap';
+import {TrackerContext} from '../../App'
 import SideNav from "../SideNav/SideNav";
 import './Domains.css'
+import {addDomain, getDomains} from "../../services/api-helper-domain";
+
 
 function Domains() {
     const [name, setName] = useState("");
     const [url, setUrl] = useState("");
     const [modal, setModal] = useState(false);
-
     const sharedStates = useContext(TrackerContext);
+
 
     const toggle = () => {
         setModal(!modal);
@@ -24,10 +36,55 @@ function Domains() {
         setName(e.target.value)
     };
 
-    const handleSave = () => {
+    const handleSave = async (e) => {
+        e.preventDefault();
         toggle();
-        console.log("Creating new domain.. ", name)
+        console.log("Creating new domain.. ", name);
+        if(url.length > 3){
+            const payload = {
+                name: name,
+                url: url,
+                orgId: sharedStates.orgId
+            };
+            addDomain(sharedStates.token, payload).then(resp => {
+                if(resp.status === 200){
+                    sharedStates.setDomains(resp.domains)
+                }
+            }).catch(err => {
+                console.error(err)
+            })
+        }
     };
+
+    const domainsList = sharedStates.domains.map((domain, index) => {
+        console.log("Building domain: ", domain);
+        // const year = domain.createdOn.toLocaleDateString()
+        return (
+            <div className="singleDomain" key={index}>
+                <div className="singleDomain__content">
+                    <div className="singleDomain__nameAndStatus">
+                        <h1>{domain.name}</h1>
+                        <p>{domain.status}</p>
+                    </div>
+                    <div className="singleDomain__siteURL">
+                        <a href={domain.url}>{domain.url}</a>
+                    </div>
+                    <div className="singleDomain__createdOn">
+                        <h3>Created On</h3>
+                        <p>{domain.createdOn}</p>
+                    </div>
+                </div>
+                <div className="singleDomain__divider">
+                </div>
+                <div className="singleDomain__detailsContainer">
+                    <Link to={`/details/${domain._id}`}>
+                        <div className="singleDomain__detailsBtn">Details</div>
+                        <i className="singleDomain__detailsIcon material-icons">more_horiz</i>
+                    </Link>
+                </div>
+            </div>
+        )
+    });
 
     return (
         <div>
@@ -39,75 +96,7 @@ function Domains() {
                     <br/>
                     <h1>Domains</h1>
                     <div className="domain__listContainer">
-                        <div className="singleDomain">
-                            <div className="singleDomain__content">
-                                <div className="singleDomain__nameAndStatus">
-                                    <h1>Investmate</h1>
-                                    <p>Active</p>
-                                </div>
-                                <div className="singleDomain__siteURL">
-                                    <a href="http://https://investmate.netlify.app/">https://investmate.netlify.app/</a>
-                                </div>
-                                <div className="singleDomain__createdOn">
-                                    <h3>Created On</h3>
-                                    <p>05/04/2020</p>
-                                </div>
-                            </div>
-                            <div className="singleDomain__divider">
-                            </div>
-                            <div className="singleDomain__detailsContainer">
-                                <Link to="/details/1">
-                                    <div className="singleDomain__detailsBtn">Details</div>
-                                    <i className="singleDomain__detailsIcon material-icons">more_horiz</i>
-                                </Link>
-                            </div>
-                        </div>
-                        <div className="singleDomain">
-                            <div className="singleDomain__content">
-                                <div className="singleDomain__nameAndStatus">
-                                    <h1>Investmate</h1>
-                                    <p>Active</p>
-                                </div>
-                                <div className="singleDomain__siteURL">
-                                    <a href="http://https://investmate.netlify.app/">https://investmate.netlify.app/</a>
-                                </div>
-                                <div className="singleDomain__createdOn">
-                                    <h3>Created On</h3>
-                                    <p>05/04/2020</p>
-                                </div>
-                            </div>
-                            <div className="singleDomain__divider">
-                            </div>
-                            <div className="singleDomain__detailsContainer">
-                                <Link to="/details/1">
-                                    <div className="singleDomain__detailsBtn">Details</div>
-                                    <i className="singleDomain__detailsIcon material-icons">more_horiz</i>
-                                </Link>
-                            </div>
-                        </div>
-                        <div className="singleDomain">
-                            <div className="singleDomain__content">
-                                <div className="singleDomain__nameAndStatus">
-                                    <h1>Investmate</h1>
-                                    <p>Active</p>
-                                </div>
-                                <div className="singleDomain__siteURL">
-                                    <a href="http://https://investmate.netlify.app/">https://investmate.netlify.app/</a>
-                                </div>
-                                <div className="singleDomain__createdOn">
-                                    <h3>Created On</h3>
-                                    <p>05/04/2020</p>
-                                </div>
-                            </div>
-                            <div className="singleDomain__divider">
-                            </div>
-                            <div className="singleDomain__detailsContainer">
-                                <Link to="/details/1">
-                                    <div className="singleDomain__detailsBtn">Details</div>
-                                    <i className="singleDomain__detailsIcon material-icons">more_horiz</i>
-                                </Link>
-                            </div>
-                        </div>
+                        {domainsList}
                     </div>
                     <i className="domain__addDomain material-icons" onClick={toggle}>add_circle</i>
                     <Modal isOpen={modal} toggle={toggle} >

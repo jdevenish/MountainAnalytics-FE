@@ -1,9 +1,9 @@
-import React, {useContext, useEffect} from 'react';
-import { Link } from 'react-router-dom';
-import { TrackerContext } from '../../App'
+import React, {useContext} from 'react';
+import {TrackerContext} from '../../App'
 import SideNav from "../SideNav/SideNav";
 
 import './Dashboard.css'
+
 function Dashboard() {
     const sharedStates = useContext(TrackerContext);
 

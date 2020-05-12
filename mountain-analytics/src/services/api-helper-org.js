@@ -5,10 +5,7 @@ const api = axios.create({
     baseURL: 'https://mountain-analytics.herokuapp.com/org/'
 });
 
-export const createNewAccount = async (token) => {
-    const resp =  await api.post('/register', {
-        params: {
-            token: token
-        }});
+export const createNewAccount = async (profile) => {
+    const resp =  await api.post('/register', profile);
     return resp.data
 };

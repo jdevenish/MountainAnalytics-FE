@@ -115,6 +115,9 @@
 
     .singleDomain__siteURL{
         display: block;
+        min-width: 20vw;
+        max-width: 20vw;
+        word-wrap: break-word;
     }
 
     .singleDomain__siteURL > a{
@@ -162,7 +165,9 @@
     }
 
     .singleDomain__nameAndStatus{
-        text-align: center;
+        text-align: left;
+        min-width: 20vw;
+        max-width: 20vw;
     }
 
 }

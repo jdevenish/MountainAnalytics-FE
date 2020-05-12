@@ -6,12 +6,12 @@ const api = axios.create({
 });
 
 export const getDomains = async (token, orgId) => {
-    const resp =  await api.post('/register', {
+    const resp =  await api.get('/list', {
         params: {
             token: token,
             orgId: orgId
         }});
-    return resp.domains
+    return resp.data
 };
 
 /*======== Format of user ========================
@@ -21,7 +21,11 @@ export const getDomains = async (token, orgId) => {
     }
  */
 export const addDomain = async (token, body) => {
-    const resp = await api.post('/create', body);
+    const resp = await api.post('/create', body, {
+        params: {
+            token: token
+        }
+    });
 
-    return resp.domains
+    return resp.data
 };

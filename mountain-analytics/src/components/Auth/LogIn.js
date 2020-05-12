@@ -1,7 +1,6 @@
 import React, {useContext, useState} from 'react';
-
-import { Button, Form, FormGroup, Input } from 'reactstrap';
-import { TrackerContext } from '../../App'
+import {Button, Form, FormGroup, Input} from 'reactstrap';
+import {TrackerContext} from '../../App'
 import "./Account.css";
 import {authenticateUser} from "../../services/api-helper-userAuth";
 
@@ -33,7 +32,7 @@ function Login() {
                 localStorage.setItem("token", json.token);
                 sharedStates.setToken(json.token);
                 sharedStates.setUserProfile(json.userProfile);
-                console.log("User Authenticated");
+                sharedStates.setOrgId(json.userProfile.org._id);
             } else {
                 sharedStates.setLoggedIn(false);
                 console.log("Error Authenticating User: ", json.error);
@@ -43,11 +42,11 @@ function Login() {
 
     return (
         <div>
-            <div className="landing-container">
-                <div className="landing-left_padding">
+            <div className="main">
+                <div className="main__side-menu">
 
                 </div>
-                <div className="landing-content_container">
+                <div className="main__content">
                     <div className="loginContainer">
                         <Form onSubmit={handleLogin}>
                             <FormGroup className="mb-2 mr-sm-2 mb-sm-0">

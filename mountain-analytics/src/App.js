@@ -1,41 +1,53 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import './App.css';
 import {validToken} from "./services/api-helper-userAuth";
+import {getDomains} from "./services/api-helper-domain";
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(false);
     const [token, setToken] =  useState("");
     const [userProfile, setUserProfile] = useState({});
-    const [org, setOrg] = useState({});
+    const [orgId, setOrgId] = useState("");
+    const [domains, setDomains] = useState([])
 
-
-    /*
-        Validate, Fetch, and save user profile
-        Fetch and save resources
-     */
     useEffect(() => {
+        setToken(localStorage.getItem("token"));
         if(token){
-            // setLoggedIn(true)
             validToken(token).then(resp => {
-                    if(resp.status === 200){
-                        localStorage.setItem("token", resp.token);
-                        setToken(resp.token); // May need to uncomment if token expires?
-                        setLoggedIn(true);
-                        setUserProfile(resp.userProfile)
-                    }else{
-                        setLoggedIn(false)
-                    }
+                if(resp.status === 200){
+                    localStorage.setItem("token", resp.token);
+                    setToken(resp.token); // May need to uncomment if token expires?
+                    setLoggedIn(true);
+                    setUserProfile(resp.userProfile)
+                    setOrgId(resp.userProfile.org._id)
+                }else{
+                    setLoggedIn(false)
                 }
-            )
+
+            }).catch(err =>{
+                console.error(err)
+            })
         }
     }, [token]);
+
+    useEffect(() => {
+        if(orgId.length > 1) {
+            getDomains(token, orgId).then(resp => {
+                if (resp.status === 200) {
+                    setDomains(resp.domains)
+                }
+            }).catch(err => {
+                console.error(err)
+            })
+        }
+    }, [orgId])
 
 
     return (
     <div className="App">
-      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} userProfile={userProfile}/>
       <TrackerContext.Provider value={{
           loggedIn,
           setLoggedIn,
@@ -43,8 +55,10 @@ function App() {
           setToken,
           userProfile,
           setUserProfile,
-          org,
-          setOrg
+          orgId,
+          setOrgId,
+          domains,
+          setDomains
       } }>
         <Main />
       </TrackerContext.Provider>
