@@ -1,0 +1,33 @@
+.script{
+    padding: 10px;
+    width: 70vw;
+    background-color: #131c29;
+    border-radius: 20px;
+    margin: 30px auto;
+}
+
+.script__scriptContainer{
+    background-color: #3D4D65;
+    margin: 20px 15px;
+    padding: 20px 0;
+    border-radius: 10px;
+}
+
+.script__scriptContainer > textarea{
+    resize: none;
+    width: 90%;
+    min-height: 75px;
+    background-color: #3D4D65;
+    border-color: #3D4D65;
+    color: white;
+}
+
+.script__btn{
+    border-radius: 20px;
+    background-color: #45f957;
+    border-color: #45f957;
+    color: #091423;
+    font-weight: bold;
+    padding: 8px;
+    margin-bottom: 10px;
+}
