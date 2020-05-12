@@ -1,19 +1,19 @@
-import React, {useContext, useEffect} from 'react';
-import { Link } from 'react-router-dom';
-import { TrackerContext } from '../../App'
+import React, {useContext} from 'react';
+import {TrackerContext} from '../../App'
 import SideNav from "../SideNav/SideNav";
 
 import './Dashboard.css'
+
 function Dashboard() {
     const sharedStates = useContext(TrackerContext);
 
     return (
         <div>
-            <div className="landing-container">
-                <div className="landing-left_padding">
+            <div className="main">
+                <div className="main__side-menu">
                     <SideNav/>
                 </div>
-                <div className="landing-content_container">
+                <div className="main__content">
                     <h1>Dashboard</h1>
                 </div>
 

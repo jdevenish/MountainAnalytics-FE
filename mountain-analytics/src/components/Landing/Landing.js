@@ -1,13 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react';
-import { TrackerContext } from '../../App'
+import React, {useContext, useState} from 'react';
+import {TrackerContext} from '../../App'
 import CreateAccount from "../Auth/CreateAccount";
 import SideNav from "../SideNav/SideNav";
 import './Landing.css'
 import backgroundVid from "../../media/Black_-_13495_bugbes.mp4"
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+import {Card, CardBody, CardImg, CardText, CardTitle} from 'reactstrap';
 
 function Landing() {
     const [showCreateAccount, setShowCreateAccount] = useState(false)
@@ -28,11 +25,11 @@ function Landing() {
 
     return (
         <div>
-            <div className="landing-container">
-                <div className="landing-left_padding">
+            <div className="main">
+                <div className="main__side-menu">
                     {sharedStates.loggedIn ? <SideNav/> : ""}
                 </div>
-                <div className="landing-content_container">
+                <div className="main__content">
                     <div className="testing">
                         <div className="landing-video_container">
                             <video id="background-video" loop autoPlay>

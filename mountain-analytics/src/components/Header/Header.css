@@ -1,49 +1,42 @@
-.header-buttons{
+.header__navbar--reactStrapOverride{
     justify-content: space-between;
     flex-wrap: nowrap;
-}
-.bg-light{
-    background-color: #131c29!important;
+    background-color: #131c29;
 }
 
-.header-buttons_container{
-    display: flex;
-    align-self: center;
-}
-
-.header-img{
+.header__brandImg{
     height: 35px;
     width: 75px;
 }
 
-.header-login_and_settings{
-    display: flex;
-    align-self: center;
-}
-
-.header-buttons-container{
+.header__btnContainer{
     width: 100%;
     background-color: #091423;
     border-radius: 0 0 20px 20px;
     height: 75px;
-}
-
-.header-buttons-container_list{
-    width: 100%;
-    height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.nav-link{
-    color: white;
-}
-
-.profile-icon{
+.header__profileIcon{
     font-size: 30px;
     cursor: pointer;
+    color: white;
+    padding: .5rem 1rem;
 }
 
+.header__login{
+    color: white;
+    padding: .5rem 1rem;
+}
+
+
+/* ==========================================
+
+    ReactStrap Override Classes
+
+============================================ */
 .popover{
     background-color: #3D4D65;
     color: white;
@@ -66,10 +59,6 @@
     color: white;
     font-weight: bold;
 }
-.arrow::before, .arrow::after{
-    /*border-bottom-color: #3D4D65;*/
-
-}
 
 .bs-popover-auto[x-placement^=bottom]>.arrow::after,
 .bs-popover-auto[x-placement^=bottom] .popover-header::before{
@@ -78,7 +67,7 @@
 
 @media (min-width: 813px) {
 
-    .header-img{
+    .header__brandImg{
         height: 69px;
         width: 150px;
     }
