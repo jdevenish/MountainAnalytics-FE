@@ -56,9 +56,11 @@ function Domains() {
         }
     };
 
+    const handleDomainSelect = (domainId) => {
+        sharedStates.setSelectedDomain(domainId);
+    };
+
     const domainsList = sharedStates.domains.map((domain, index) => {
-        console.log("Building domain: ", domain);
-        // const year = domain.createdOn.toLocaleDateString()
         return (
             <div className="singleDomain" key={index}>
                 <div className="singleDomain__content">
@@ -77,7 +79,9 @@ function Domains() {
                 <div className="singleDomain__divider">
                 </div>
                 <div className="singleDomain__detailsContainer">
-                    <Link to={`/details/${domain._id}`}>
+                    <Link
+                        to={`/details/${domain._id}`}
+                        onClick={() => handleDomainSelect(domain._id)}>
                         <div className="singleDomain__detailsBtn">Details</div>
                         <i className="singleDomain__detailsIcon material-icons">more_horiz</i>
                     </Link>

@@ -10,7 +10,8 @@ function App() {
     const [token, setToken] =  useState("");
     const [userProfile, setUserProfile] = useState({});
     const [orgId, setOrgId] = useState("");
-    const [domains, setDomains] = useState([])
+    const [domains, setDomains] = useState([]);
+    const [selectedDomain, setSelectedDomain] = useState("");
 
     useEffect(() => {
         setToken(localStorage.getItem("token"));
@@ -58,7 +59,9 @@ function App() {
           orgId,
           setOrgId,
           domains,
-          setDomains
+          setDomains,
+          selectedDomain,
+          setSelectedDomain
       } }>
         <Main />
       </TrackerContext.Provider>

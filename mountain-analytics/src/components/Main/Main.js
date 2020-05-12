@@ -18,7 +18,7 @@ function Main() {
             <Route path="/dashboard" component={sharedStates.loggedIn ? Dashboard : Landing} />
             <Route path="/domains" component={sharedStates.loggedIn ? Domains : Landing} />
             <Route path="/settings" component={sharedStates.loggedIn ? Settings : Landing} />
-            <Route path="/details/:siteId" component={sharedStates.loggedIn ? Details: Landing} />
+            <Route path="/details/:siteId" component={sharedStates.selectedDomain.length > 1 ? Details: Domains} />
             <Redirect to="/" />
         </Switch>
     );
