@@ -1,19 +1,35 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import {Link} from 'react-router-dom';
 import {
     Navbar,
-    UncontrolledPopover,
+    PopoverBody,
     PopoverHeader,
-    PopoverBody
+    UncontrolledPopover
 } from 'reactstrap';
 import './Header.css';
 
 
-function Header({loggedIn, setLoggedIn}) {
+function Header({loggedIn, setLoggedIn, userProfile}) {
     const handleLogOut = () => {
+        localStorage.removeItem("token");
         setLoggedIn(false);
-        console.log("Logging out")
+
     };
+
+
+    let userProfilePopUp = (
+        <Fragment>
+            <i className="header__profileIcon material-icons" id="PopoverLegacy">person</i>
+            <UncontrolledPopover trigger="legacy" placement="bottom" target="PopoverLegacy" className="header__popover--readStrapOverride">
+                <PopoverHeader>User Profile</PopoverHeader>
+                <PopoverBody>
+                    <p>User: {userProfile.first_name} {userProfile.last_name}</p>
+                    <p>Email: {userProfile.email}</p>
+                    <button onClick={handleLogOut}>Log Out</button>
+                </PopoverBody>
+            </UncontrolledPopover>
+        </Fragment>
+    );
 
     return (
         <div>
@@ -23,17 +39,7 @@ function Header({loggedIn, setLoggedIn}) {
                 </Link>
                 <div className="header__btnContainer">
                     <div>
-                        {loggedIn ?
-                            <i className="header__profileIcon material-icons" id="PopoverLegacy">person</i>
-                            : <Link className="header__login" to="/login">Log In</Link> }
-                        <UncontrolledPopover trigger="legacy" placement="bottom" target="PopoverLegacy" className="header__popover--readStrapOverride">
-                            <PopoverHeader>User Profile</PopoverHeader>
-                            <PopoverBody>
-                                <p>User: Justin Devenish</p>
-                                <p>Email: justin.devenish@gmail.com</p>
-                                <button onClick={handleLogOut}>Log Out</button>
-                            </PopoverBody>
-                        </UncontrolledPopover>
+                        {loggedIn ? userProfilePopUp : <Link className="header__login" to="/login">Log In</Link> }
                     </div>
                 </div>
             </Navbar>

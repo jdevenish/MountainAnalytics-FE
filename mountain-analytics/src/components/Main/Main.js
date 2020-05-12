@@ -1,6 +1,6 @@
-import React, {useContext, useEffect} from 'react';
-import { Route, Switch, Redirect} from 'react-router-dom';
-import { TrackerContext } from '../../App'
+import React, {useContext} from 'react';
+import {Redirect, Route, Switch} from 'react-router-dom';
+import {TrackerContext} from '../../App'
 import Landing from "../Landing/Landing";
 import Login from "../Auth/LogIn";
 import Dashboard from "../Dashboard/Dashboard";
@@ -15,10 +15,10 @@ function Main() {
         <Switch>
             <Route exact path="/" component={Landing} />
             <Route path="/login" component={sharedStates.loggedIn ? Dashboard : Login} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/domains" component={Domains} />
-            <Route path="/settings" component={Settings} />
-            <Route path="/details/:siteId" component={Details} />
+            <Route path="/dashboard" component={sharedStates.loggedIn ? Dashboard : Landing} />
+            <Route path="/domains" component={sharedStates.loggedIn ? Domains : Landing} />
+            <Route path="/settings" component={sharedStates.loggedIn ? Settings : Landing} />
+            <Route path="/details/:siteId" component={sharedStates.loggedIn ? Details: Landing} />
             <Redirect to="/" />
         </Switch>
     );

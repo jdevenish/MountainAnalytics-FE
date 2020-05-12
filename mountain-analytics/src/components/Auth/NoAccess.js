@@ -1,7 +1,5 @@
 import React, {useContext, useState} from 'react';
-import { TrackerContext } from '../../App'
-import CreateAccount from "./CreateAccount"
-import LogIn from "./LogIn"
+import {TrackerContext} from '../../App'
 
 function NoAccess() {
     const sharedStates = useContext(TrackerContext);

@@ -1,5 +1,5 @@
-import React, {useContext, useEffect} from 'react';
-import { TrackerContext } from '../../App'
+import React, {useContext} from 'react';
+import {TrackerContext} from '../../App'
 import SideNav from "../SideNav/SideNav";
 
 function Settings() {
