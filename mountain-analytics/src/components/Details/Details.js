@@ -11,6 +11,7 @@ function Details() {
     const sharedStates = useContext(TrackerContext);
     const [metrics, setMetrics] = useState({});
     let loaded = metrics.hasOwnProperty("loadTimes");
+    let hasData = false
     let browserTotal = 0;
     let deviceTotal = 0;
     let loadTimePlotData = [{x:0, y:0}];
@@ -28,9 +29,10 @@ function Details() {
 
         loadTimePlotData = metrics.loadTimes.data.time.map((time, index) => {
             return { x: index, y: time}
-        })
+        });
+
+        if(browserTotal > 0) hasData = true;
     }
-    console.log(loadTimePlotData)
 
 
     const selectedDomain = sharedStates.domains.find(domain => {
@@ -82,7 +84,41 @@ function Details() {
         </Fragment>
     );
 
-    const deviceType = ( loaded ? (
+    const deviceType = ( loaded && hasData ? (
+            <Fragment>
+                <div className="browser">
+                    <h1>Device Type Breakdown</h1>
+                    <div className="browser__content">
+                        <VictoryPie
+                            data={[
+                                {x: "Mobile", y: metrics.deviceType.mobile},
+                                {x: "Tablet", y: metrics.deviceType.tablet},
+                                {x: "Desktop", y: metrics.deviceType.desktop}
+                            ]}
+                            innerRadius={100}
+                            style={{labels: {
+                                    fontSize: 0
+                                }}}
+                            colorScale={[
+                                "#45F957",
+                                "#FF4E98",
+                                "#FB9C44"
+                            ]}
+                        />
+                        <div className="browser__labelContainer">
+                            <ul className="browser__labels">
+                                <li><div className="browser__circleIcon chrome-border"/>Mobile<span className="chrome-color">{((metrics.deviceType.mobile / deviceTotal)*100).toFixed(2)}%</span></li>
+                                <li><div className="browser__circleIcon firefox-border"/>Tablet<span className="firefox-color">{((metrics.deviceType.tablet / deviceTotal)*100).toFixed(2)}%</span></li>
+                                <li><div className="browser__circleIcon safari-border"/>Desktop<span className="safari-color">{((metrics.deviceType.desktop / deviceTotal)*100).toFixed(2)}%</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </Fragment>
+        ) : ""
+    );
+
+    const browser = ( hasData ? (
             <Fragment>
                 <div className="browser">
                     <h1>Browser Breakdown</h1>
@@ -119,63 +155,11 @@ function Details() {
                     </div>
                 </div>
             </Fragment>
-        ) : (
-            <Fragment>
-                <div className="browser">
-                    <Spinner type="grow" color="danger"/>
-                </div>
-            </Fragment>
-        )
-    );
-
-    const browser = ( loaded ? (
-            <Fragment>
-                <div className="browser">
-                    <h1>Browser Breakdown</h1>
-                    <div className="browser__content">
-                        <VictoryPie
-                            data={[
-                                {x: "Chrome", y: metrics.browser.chrome},
-                                {x: "Firefox", y: metrics.browser.firefox},
-                                {x: "Safari", y: metrics.browser.safari},
-                                {x: "IE", y: metrics.browser.ie},
-                                {x: "Other", y: metrics.browser.other}
-                            ]}
-                            innerRadius={100}
-                            style={{labels: {
-                                    fontSize: 0
-                                }}}
-                            colorScale={[
-                                "#45F957",
-                                "#FF4E98",
-                                "#FB9C44",
-                                "#44AEFB",
-                                "#DEFF5C"
-                            ]}
-                        />
-                        <div className="browser__labelContainer">
-                            <ul className="browser__labels">
-                                <li><div className="browser__circleIcon chrome-border"/>Chrome<span className="chrome-color">{((metrics.browser.chrome / browserTotal)*100).toFixed(2)}%</span></li>
-                                <li><div className="browser__circleIcon firefox-border"/>Firefox<span className="firefox-color">{((metrics.browser.firefox / browserTotal)*100).toFixed(2)}%</span></li>
-                                <li><div className="browser__circleIcon safari-border"/>Safari<span className="safari-color">{((metrics.browser.safari / browserTotal)*100).toFixed(2)}%</span></li>
-                                <li><div className="browser__circleIcon ie-border"/>IE<span className="ie-color">{((metrics.browser.ie / browserTotal)*100).toFixed(2)}%</span></li>
-                                <li><div className="browser__circleIcon other-border"/>Other<span className="other-color">{(metrics.browser.other / browserTotal).toFixed(2)*100}%</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </Fragment>
-        ) : (
-            <Fragment>
-                <div className="browser">
-                    <Spinner type="grow" color="danger"/>
-                </div>
-            </Fragment>
-        )
+        ) : ""
 
     );
 
-    const loadTimes = ( loaded ? (
+    const loadTimes = ( hasData ? (
             <Fragment>
                 <div className="loadTimes">
                     <h1>Load Times (ms)</h1>
@@ -212,9 +196,10 @@ function Details() {
                                    style={{
                                        data: {stroke: "#D2335c", stokeWidth: 3.5}
                                    }}
-                                   minDomain={{y:150}}
+                                   minDomain={{y:25}}
                                    maxDomain={{y:(metrics.loadTimes.high + 150)}}
                                    standalone={false}
+                                   interpolation="natural"
                                    data={loadTimePlotData}
                                />
                             </g>
@@ -223,13 +208,7 @@ function Details() {
                 </div>
 
             </Fragment>
-        ) : (
-            <Fragment>
-                <div className="browser">
-                    <Spinner type="grow" color="danger"/>
-                </div>
-            </Fragment>
-        )
+        ) : ""
 
     );
 
@@ -241,13 +220,16 @@ function Details() {
 
     return (
         <div>
-            <div className="main">
+            <div className={hasData ? "main--details" : "main"}>
                 <div className="main__side-menu">
                     <SideNav/>
                 </div>
                 <div className="main__content">
                     {Script}
-                    {browser}
+                    <div className="details__pieContainer">
+                        {browser}
+                        {deviceType}
+                    </div>
                     {loadTimes}
                 </div>
 

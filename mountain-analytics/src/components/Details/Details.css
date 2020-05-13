@@ -1,6 +1,6 @@
 .script{
     padding: 10px;
-    width: 70vw;
+    width: 75vw;
     background-color: #131c29;
     border-radius: 20px;
     margin: 30px auto;
@@ -118,7 +118,7 @@
 }
 
 .loadTimes{
-    width: 70vw;
+    width: 75vw;
     /*max-height: 300px;*/
     background-color: #131c29;
     border-radius: 20px;
@@ -133,4 +133,19 @@
 svg{
     /*border: 2px solid red;*/
     box-sizing: border-box;
+}
+
+.details__pieContainer{
+    max-width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.main--details{
+    background-color: #131c29;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 1rem;
 }
