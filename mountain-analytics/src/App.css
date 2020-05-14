@@ -4,7 +4,7 @@
 
 .main{
   background-color: #131c29;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   padding: .5rem 1rem;
@@ -26,8 +26,17 @@
   overflow: hidden;
 }
 
+.main__content > h1{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+}
+
 @media (min-width: 813px) {
 
+  .main{
+    height: 100vh;
+  }
   .main__side-menu{
     min-width: 150px;
   }

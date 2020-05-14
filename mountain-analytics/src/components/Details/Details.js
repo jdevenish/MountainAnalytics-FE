@@ -1,17 +1,15 @@
 import React, {useContext, Fragment, useEffect, useState} from 'react';
 import {VictoryPie, VictoryLine, VictoryChart, VictoryTheme, VictoryAxis, VictoryLabel} from 'victory'
-import { Spinner } from 'reactstrap';
 import {TrackerContext} from '../../App'
 import SideNav from "../SideNav/SideNav";
 import {getDomainData} from "../../services/api-helper-data"
 import "./Details.css"
-import loadTheme from "./loadTimeTheme"
 
 function Details() {
     const sharedStates = useContext(TrackerContext);
     const [metrics, setMetrics] = useState({});
     let loaded = metrics.hasOwnProperty("loadTimes");
-    let hasData = false
+    let hasData = false;
     let browserTotal = 0;
     let deviceTotal = 0;
     let loadTimePlotData = [{x:0, y:0}];
@@ -206,16 +204,9 @@ function Details() {
                        </svg>
                     </div>
                 </div>
-
             </Fragment>
         ) : ""
 
-    );
-
-    const locale = (
-        <Fragment>
-
-        </Fragment>
     );
 
     return (

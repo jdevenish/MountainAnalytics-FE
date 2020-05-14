@@ -26,9 +26,13 @@
     padding: .5rem 1rem;
 }
 
-.header__login{
+.header__login, .header__login:hover{
     color: white;
     padding: .5rem 1rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    text-decoration: none;
 }
 
 

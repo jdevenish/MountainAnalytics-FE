@@ -35,19 +35,24 @@
 }
 
 .singleDomain__nameAndStatus > h1{
-    font-size: 24px;
+    font-size: 26px;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .singleDomain__nameAndStatus > p{
     color: #45f957;
+    font-family: 'Roboto', sans-serif;
 }
 
 .singleDomain__siteURL{
     display: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
 }
 
 .singleDomain__createdOn{
     display: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 .singleDomain__divider{
@@ -66,8 +71,6 @@
     display: none;
 }
 
-
-
 .modal-content{
     margin-top: 150px;
     background-color: #3D4D65;
@@ -75,6 +78,12 @@
 
 .modal-header{
     border-bottom-color: #44aefb;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.modal-header > h5{
+    font-weight: 700;
+    font-size: 22px;
 }
 
 .modal-title{
@@ -87,26 +96,28 @@
 
 .save-btn{
     color: black;
-    /*font-weight: bold;*/
+    font-family: 'Roboto', sans-serif;
     background-color: #45f957;
     border-color: #45f957;
 }
 
 .save-btn:hover{
     color: black;
+    font-family: 'Roboto', sans-serif;
     background-color: #06c619;
     border-color: #06c619;
 }
 
 .cancel-btn{
     color: black;
-    /*font-weight: bold;*/
+    font-family: 'Roboto', sans-serif;
     background-color: #D2335c;
     border-color: #D2335c;
 }
 
 .cancel-btn:hover{
     color:black;
+    font-family: 'Roboto', sans-serif;
     background-color: #bc294e;
     border-color: #bc294e;
 }
@@ -145,19 +156,27 @@
         margin-right: 5px;
     }
 
+    .singleDomain__detailsContainer > a:hover{
+        margin-right: 5px;
+        text-decoration: none;
+    }
+
     .singleDomain__detailsIcon{
         display: none;
     }
 
-    .singleDomain__detailsBtn{
+    .singleDomain__detailsBtn, .singleDomain__detailsBtn:hover{
         display: block;
         background-color: #44aefb;
         color: white;
         font-weight: bold;
         border-radius: 20px;
         width: 110%;
-        padding: 1px 7px 2px;
+        padding: 2px 9px 3px;
         border: 1px solid white;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
     }
 
     .singleDomain{

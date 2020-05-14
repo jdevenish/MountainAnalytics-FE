@@ -1,15 +1,24 @@
-.loginContainer{
-    width: 350px;
-    background-color: #091423;
-    padding: 40px 20px;
-    margin: 20px auto;
+p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
-.loginContainer-Button{
+.loginContainer{
+    width: 350px;
+    background-color: #131c29;
+    padding: 40px 20px;
+    margin: 20px auto;
+    border-radius: 20px;
+}
+
+.loginContainer-Button, .loginContainer-Button:hover{
     width: 100%;
     border-radius: 40px;
     margin-top: 15px;
     margin-bottom: 10px;
+    background-color: #44aefb;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
 }
 
 .loginContainer-input{
