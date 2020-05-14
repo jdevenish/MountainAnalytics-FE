@@ -13,16 +13,20 @@ function Dashboard() {
     let data = []
     let max = 0;
     let min = 10000;
+    let nameId = [];
+    let names = [];
 
     if(hasData){
         data = sharedStates.domainDataArr.map(domain => {
             if(domain.loadTimes.high > max) max = domain.loadTimes.high;
             if(domain.loadTimes.low < min) min = domain.loadTimes.low;
+            nameId.push(domain.domainId);
             return domain.loadTimes.data.time.map((time,index) => {
                 return { x: index, y: time}
             })
         })
     }
+
     const colors = ["#FB9C44", "#FF4E98", "#44AEFB", "#DEFF5C", "#45f957"];
     const graphs = data.map((currData, index) => {
         if(index < 5){
@@ -53,6 +57,8 @@ function Dashboard() {
             )
         }
     });
+
+
 
     console.log(min, max)
 
