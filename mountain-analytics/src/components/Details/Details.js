@@ -41,7 +41,6 @@ function Details() {
         getDomainData(sharedStates.token, selectedDomain._id).then(resp => {
             if(resp.status === 200){
                 setMetrics(resp.metrics);
-
             }
         }).catch(err => {
             console.error(err)

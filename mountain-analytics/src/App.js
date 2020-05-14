@@ -4,6 +4,7 @@ import Main from "./components/Main/Main";
 import './App.css';
 import {validToken} from "./services/api-helper-userAuth";
 import {getDomains} from "./services/api-helper-domain";
+import {getDomainData} from "./services/api-helper-data";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -12,6 +13,8 @@ function App() {
     const [orgId, setOrgId] = useState("");
     const [domains, setDomains] = useState([]);
     const [selectedDomain, setSelectedDomain] = useState("");
+    const [domainDataArr, setDomainDataArr] = useState([]);
+
 
     useEffect(() => {
         setToken(localStorage.getItem("token"));
@@ -21,12 +24,11 @@ function App() {
                     localStorage.setItem("token", resp.token);
                     setToken(resp.token); // May need to uncomment if token expires?
                     setLoggedIn(true);
-                    setUserProfile(resp.userProfile)
+                    setUserProfile(resp.userProfile);
                     setOrgId(resp.userProfile.org._id)
                 }else{
                     setLoggedIn(false)
                 }
-
             }).catch(err =>{
                 console.error(err)
             })
@@ -43,7 +45,26 @@ function App() {
                 console.error(err)
             })
         }
-    }, [orgId])
+    }, [orgId]);
+
+    useEffect( () => {
+        if(domains.length > 0){
+            let dataArrCpy = [...domainDataArr];
+            domains.forEach(domain => {
+                getDomainData(token, domain._id).then(resp => {
+                    if(resp.status === 200){
+                        dataArrCpy.push(resp.metrics)
+                    }
+                }).catch(err => {
+                    console.error(err)
+                })
+            });
+            setDomainDataArr(dataArrCpy)
+        }
+
+
+
+    }, [domains])
 
 
     return (
@@ -61,7 +82,8 @@ function App() {
           domains,
           setDomains,
           selectedDomain,
-          setSelectedDomain
+          setSelectedDomain,
+          domainDataArr
       } }>
         <Main />
       </TrackerContext.Provider>
