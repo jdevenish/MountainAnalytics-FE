@@ -64,7 +64,7 @@ function Details() {
             <div className="script">
                 <div className="script__directions">
                     <h2>Script for {selectedDomain.name}</h2>
-                    <p>Add this script inside the <span>head</span> tag of your website, then check back to see your data come alive!</p>
+                    <p>Add this script to the bottom of the <span> &lt;body&gt; </span> tag of your website, then check back to see your data come alive!</p>
                 </div>
                 <div className="script__scriptContainer">
                     <textarea
@@ -162,7 +162,7 @@ function Details() {
                 <div className="loadTimes">
                     <h1>Load Times (ms)</h1>
                     <div>
-                       <svg viewBox="0 0 500 300">
+                       <svg viewBox="0 0 475 275">
                            <g >
                                 <VictoryAxis
                                     standalone={false}
@@ -177,7 +177,7 @@ function Details() {
                                     }
                                     />
                                <VictoryAxis dependentAxis
-                                            domain={[150, (metrics.loadTimes.high+200)]}
+                                            domain={[100, (metrics.loadTimes.high+200)]}
                                             orientation="left"
                                             standalone={false}
                                             style={{
