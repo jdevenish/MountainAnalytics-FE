@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import './SideNav.css'
 
 function SideNav() {
+    const [selected, setSelected] = useState(0)
+
+    const handleSelect = (num) => {
+      setSelected(num)
+    };
 
     return (
         <div className="sideNav__container">
-            <div>
+            <div >
                 <Link to="/dashboard">
-                    <p className="sideNav__label"><i className="sideNav__icon material-icons">dashboard</i>Dashboard</p>
+                    <p className={selected === 1 ? "sideNav__selected" : "sideNav__label"}><i className="sideNav__icon material-icons">dashboard</i>Dashboard</p>
                 </Link>
             </div>
             <div>

@@ -2,14 +2,14 @@ import axios from 'axios'
 
 
 const api = axios.create({
-    baseURL: 'https://mountain-analytics.herokuapp.com/data/'
+    baseURL: 'https://mountain-analytics.herokuapp.com/metrics'
 });
 
 export const getDomainData = async (token, domainId) => {
-    const resp =  await api.post('/', {
+    const resp =  await api.get('/', {
         params: {
             token: token,
             domainId: domainId
         }});
-    return resp.domains
+    return resp.data
 };

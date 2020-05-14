@@ -19,7 +19,9 @@ function Landing() {
         if(showCreateAccount){
             registerContent = <CreateAccount/>
         } else{
-            registerContent = <button onClick={handleSelectCreateAccount}>Create Account</button>;
+            registerContent = <button
+                onClick={handleSelectCreateAccount}
+                className="account-btn">Create Account</button>;
         }
     }
 
@@ -46,24 +48,27 @@ function Landing() {
                         <Card className="landing-info_card">
                             <CardImg top width="100%" src="https://res.cloudinary.com/doaftkgbv/image/upload/v1589039878/completeInfo_gtvjqb.png" alt="Card image cap" />
                             <CardBody>
-                                <CardTitle>Complete Info.</CardTitle>
-                                <CardText>Understand your site and users to better understand how it's accessed and used.</CardText>
+                                <CardTitle className="cardTitle">Complete Info.</CardTitle>
+                                <CardText className="cardText">Understand your site and users to better understand how it's accessed and used.</CardText>
                             </CardBody>
                         </Card>
                         <Card className="landing-info_card">
                             <CardImg top width="100%" src="https://res.cloudinary.com/doaftkgbv/image/upload/v1589039878/Insights_bu3lwd.png" alt="Card image cap" />
                             <CardBody>
-                                <CardTitle>Insights</CardTitle>
-                                <CardText>Our unique insights allow you to  begin tailoring your designs to better fit the users.</CardText>
+                                <CardTitle className="cardTitle">Insights</CardTitle>
+                                <CardText className="cardText">Our unique insights allow you to  begin tailoring your designs to better fit the users.</CardText>
                             </CardBody>
                         </Card>
                         <Card className="landing-info_card">
                             <CardImg top width="100%" src="https://res.cloudinary.com/doaftkgbv/image/upload/v1589039878/Resutls_x4cmlg.png" alt="Card image cap" />
                             <CardBody>
-                                <CardTitle>Results</CardTitle>
-                                <CardText>Using the information and insights collected, begin to see measurable results as you focus on your target audience. </CardText>
+                                <CardTitle className="cardTitle">Results</CardTitle>
+                                <CardText className="cardText">Using the information and insights collected, begin to see measurable results as you focus on your target audience. </CardText>
                             </CardBody>
                         </Card>
+                    </div>
+                    <div className="buffer">
+
                     </div>
                 </div>
             </div>
