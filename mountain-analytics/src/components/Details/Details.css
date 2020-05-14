@@ -145,7 +145,6 @@
 
 .loadTimes{
     width: 75vw;
-    /*max-height: 300px;*/
     background-color: #131c29;
     border-radius: 20px;
     margin: 30px auto;
@@ -181,4 +180,8 @@ svg{
     display: flex;
     justify-content: space-between;
     padding: .5rem 1rem;
+}
+
+.loadTimes__highLabel{
+    color: white;
 }

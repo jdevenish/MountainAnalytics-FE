@@ -164,7 +164,37 @@ function Details() {
                     <div>
                        <svg viewBox="0 0 475 275">
                            <g >
-                                <VictoryAxis
+                               <VictoryLabel
+                                   x={125} y={25}
+                                   text={`High: ${metrics.loadTimes.high}ms`}
+                                   style={{
+                                       fontFamily: "'Roboto'",
+                                       fill: "white",
+                                       fontSize: 10
+                                   }}
+                               />
+
+                               <VictoryLabel
+                                   x={200} y={25}
+                                   text={`Low: ${metrics.loadTimes.low}ms`}
+                                   style={{
+                                       fontFamily: "'Roboto'",
+                                       fill: "white",
+                                       fontSize: 10
+                                   }}
+                               />
+
+                               <VictoryLabel
+                                   x={265} y={25}
+                                   text={`Average: ${metrics.loadTimes.avg.toFixed(2)}ms`}
+                                   style={{
+                                       fontFamily: "'Roboto'",
+                                       fill: "white",
+                                       fontSize: 10
+                                   }}
+                               />
+
+                               <VictoryAxis
                                     standalone={false}
                                     style={
                                         {
@@ -223,7 +253,6 @@ function Details() {
                     </div>
                     {loadTimes}
                 </div>
-
             </div>
         </div>
     );
