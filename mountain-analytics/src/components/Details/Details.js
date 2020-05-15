@@ -1,4 +1,5 @@
 import React, {useContext, Fragment, useEffect, useState} from 'react';
+import {useHistory} from 'react-router-dom'
 import {VictoryPie, VictoryLine, VictoryChart, VictoryTheme, VictoryAxis, VictoryLabel} from 'victory'
 import {TrackerContext} from '../../App'
 import SideNav from "../SideNav/SideNav";
@@ -8,6 +9,7 @@ import {deleteDomain} from "../../services/api-helper-domain";
 
 function Details() {
     const sharedStates = useContext(TrackerContext);
+    const history = useHistory();
     const [metrics, setMetrics] = useState({});
     let loaded = metrics.hasOwnProperty("loadTimes");
     let hasData = false;
@@ -42,6 +44,7 @@ function Details() {
         getDomainData(sharedStates.token, selectedDomain._id).then(resp => {
             if(resp.status === 200){
                 setMetrics(resp.metrics);
+
             }
         }).catch(err => {
             console.error(err)
@@ -55,12 +58,14 @@ function Details() {
         }
         deleteDomain(sharedStates.token, body).then(resp => {
             if (resp.status === 200) {
-                sharedStates.setDomains(resp.domains)
+                sharedStates.setDomains(resp.domains);
+
             }
         }).catch(err => {
             console.error(err)
-        })
-    }
+        });
+        history.push("/domains")
+    };
 
     // Copy the URL to user's clipboard
     const handleCopy = e => {
@@ -265,7 +270,9 @@ function Details() {
                         {deviceType}
                     </div>
                     {loadTimes}
-                    <button onClick={() => handleDelete(selectedDomain)}>Delete Domain</button>
+                    <button
+                        className="details__deletebtn"
+                        onClick={() => handleDelete(selectedDomain)}>Delete Domain</button>
                 </div>
             </div>
         </div>

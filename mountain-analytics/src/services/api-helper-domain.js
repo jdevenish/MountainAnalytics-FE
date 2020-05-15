@@ -28,7 +28,7 @@ export const deleteDomain = async(token, body) => {
     const resp = await api.delete('/remove', {
         params:{
             token: token,
-            domainId: body.domainId,
+            domainId: body._id,
             orgId: body.orgId
         }
     })
