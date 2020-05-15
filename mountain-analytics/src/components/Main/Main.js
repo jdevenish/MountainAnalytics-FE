@@ -14,7 +14,7 @@ function Main() {
     return (
         <Switch>
             <Route exact path="/" component={Landing} />
-            <Route path="/login" component={sharedStates.loggedIn ? Dashboard : Login} />
+            <Route path="/login" component={sharedStates.loggedIn ? Landing : Login} />
             <Route path="/dashboard" component={sharedStates.loggedIn ? Dashboard : Landing} />
             <Route path="/domains" component={sharedStates.loggedIn ? Domains : Landing} />
             <Route path="/settings" component={sharedStates.loggedIn ? Settings : Landing} />
