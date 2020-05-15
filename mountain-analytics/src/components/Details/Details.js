@@ -4,6 +4,7 @@ import {TrackerContext} from '../../App'
 import SideNav from "../SideNav/SideNav";
 import {getDomainData} from "../../services/api-helper-data"
 import "./Details.css"
+import {deleteDomain} from "../../services/api-helper-domain";
 
 function Details() {
     const sharedStates = useContext(TrackerContext);
@@ -47,6 +48,19 @@ function Details() {
         })
     }, []);
 
+    const handleDelete = (domain) => {
+        const body = {
+            _id:domain._id,
+            orgId:domain.orgId
+        }
+        deleteDomain(sharedStates.token, body).then(resp => {
+            if (resp.status === 200) {
+                sharedStates.setDomains(resp.domains)
+            }
+        }).catch(err => {
+            console.error(err)
+        })
+    }
 
     // Copy the URL to user's clipboard
     const handleCopy = e => {
@@ -251,6 +265,7 @@ function Details() {
                         {deviceType}
                     </div>
                     {loadTimes}
+                    <button onClick={() => handleDelete(selectedDomain)}>Delete Domain</button>
                 </div>
             </div>
         </div>

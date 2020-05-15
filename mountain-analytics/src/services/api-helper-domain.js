@@ -14,18 +14,24 @@ export const getDomains = async (token, orgId) => {
     return resp.data
 };
 
-/*======== Format of user ========================
-    {
-      "email": "{{userName}}",
-      "password": "{{password}}"
-    }
- */
 export const addDomain = async (token, body) => {
     const resp = await api.post('/create', body, {
         params: {
             token: token
         }
     });
+
+    return resp.data
+};
+
+export const deleteDomain = async(token, body) => {
+    const resp = await api.delete('/remove', {
+        params:{
+            token: token,
+            domainId: body.domainId,
+            orgId: body.orgId
+        }
+    })
 
     return resp.data
 };
